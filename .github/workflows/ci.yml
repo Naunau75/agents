@@ -1,0 +1,33 @@
+name: Python CI with uv
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout du code
+      uses: actions/checkout@v4
+
+    - name: Configuration de Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Installer et configurer uv
+      uses: astral-sh/setup-uv@v5
+      with:
+        enable-cache: true # Active le cache automatique pour aller plus vite les prochaines fois
+
+    - name: Installer les dépendances du projet
+      # Cette commande synchronise votre environnement virtuel avec votre uv.lock
+      run: uv sync
+
+    - name: Lancer les tests avec pytest
+      # "uv run" s'assure d'exécuter pytest au sein de l'environnement virtuel géré par uv
+      run: uv run pytest test_main.py
