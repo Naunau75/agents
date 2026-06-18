@@ -8,7 +8,7 @@ Ce projet éducatif démontre la puissance de **LangGraph** et de **Mistral AI**
 *   **LangChain** : Intégration des modèles et des outils.
 *   **Mistral AI** : Modèle de langage (LLM) puissant servant de "cerveau" à chaque agent (`mistral-large-latest`).
 *   **DuckDuckGo Search** : Outil permettant à l'agent de chercher des informations récentes sur le web.
-*   **Python 3.9+** : Langage de programmation principal.
+*   **Python 3.12+** : Langage de programmation principal.
 
 ## 🧠 Architecture du Workflow
 
